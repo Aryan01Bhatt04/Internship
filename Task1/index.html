@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form action="ResultTable.html" method="GET" class="container">
+    <form onsubmit="submitDetails(event)" method="POST" class="container">
         <div class="left">
             <input name="Fname" class="inputFields" id="Fname" type="text" placeholder="First Name"><br>
             <p id="NameError" class="message-error"></p>
@@ -27,7 +27,7 @@
                 <label for="DateField">Date Of Birth</label><br>
                 <input name="DateField" type="date" id="DateField">
             </div>
-            <button class="submitButton" type="submit">Submit</button>
+            <button id="submitButton" class="submitButton" type="submit">Submit</button>
         </div>
         <div id="right" class="right">
             <div class="labelbtn">

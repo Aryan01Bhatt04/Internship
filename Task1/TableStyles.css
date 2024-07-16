@@ -32,9 +32,13 @@ body{
     height: 90%;
 }
 
+#table-body td{
+    border: 2px solid #C7C8CC;
+    text-align: center;
+}
 .main-table{
     width: 95%;
-    height: 95%;
+    height: 55%;
     
 }
 .main-table {

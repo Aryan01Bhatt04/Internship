@@ -38,33 +38,55 @@ const PhnNo = document.getElementById("PhnNo");
             const messageNode = document.getElementById("EmailError").innerText = "Enter Valid Phone Number";
         }
 });
+
+let recordList = new Array();
+
+function submitDetails(e){
+    e.preventDefault();
+    console.log(e);
+    let fieldList = {
+        "Fullname" : document.getElementById("Fname").value +" "+document.getElementById("Lname").value,
+        "Email" : document.getElementById("Email").value,
+        "Phone" : document.getElementById("PhnNo").value,
+        "Gender" : document.getElementById("Gender").value,
+        "Address" : document.getElementById("AddressBox").value,
+        "DOB" : document.getElementById("DateField").value,
+        "Title" : document.getElementById("Prof_Details").value,
+        "Experience" : document.getElementById("Experience").value
+    };
+    
+    recordList.push(fieldList);
+    localStorage.setItem('records',JSON.stringify(recordList));
+    console.log(recordList);
+    return;
+    
+}
+
+
+let flag = 0; 
+
 const plusButton = document.getElementById("plusButton");
 plusButton.addEventListener('click',function(e){
-    e.preventDefault();
+        e.preventDefault();
+        if(flag < 5 ){
+                if(flag == 4)
+                {
+                    alert("Maximum number of fields reached");
+                }
+                else{
+                        flag += 1;
+                        const newNode = document.createElement("input");
+                        newNode.setAttribute("id","Prof_Details");
+                        newNode.setAttribute("type","text");
+                        newNode.setAttribute("placeholder","Other Details");
+                        const parent = document.getElementById("right");
+                        parent.appendChild(newNode);
+                    }
+                }
+            
+    return;
 });
-
-
-
-// let flag = 0; 
-
 // const plusButton = document.getElementById("plusButton");
 // plusButton.addEventListener('click',function(e){
 //     e.preventDefault();
-//     if(flag < 5 ){
-//         if(flag == 4)
-//         {
-//             alert("Maximum number of fields reached");
-//         }
-//         else{
-//             flag += 1;
-//             const newNode = document.createElement("input");
-//             newNode.setAttribute("id","Prof_Details");
-//             newNode.setAttribute("type","text");
-//             newNode.setAttribute("placeholder","Other Details");
-//             const parent = document.getElementById("right");
-//             parent.appendChild(newNode);
-//         }
-//     }
-    
-//     return;
 // });

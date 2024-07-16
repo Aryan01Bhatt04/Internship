@@ -1,10 +1,25 @@
-let data = window.location.search;
-let fields = new URLSearchParams(data);
-let FirstName = fields.get("Fname");
-let LastName = fields.get("Lname");
-let FullName = FirstName + LastName;
-let PhoneNumber = fields.get("PhnNo");
-let Gender = fields.get("Gender");
-let AddressBox = fields.get("AddressBox");
-let DateField = fields.get("DateField");
-let 
+let recordList = new Array();
+recordList = JSON.parse(localStorage.getItem("records"));
+console.log( recordList);
+
+    
+
+const t_body = document.getElementById("table-body");
+window.addEventListener('load',function(){
+    
+    
+    for( elements of recordList ){
+        const row = document.createElement("tr");
+            t_body.appendChild(row);
+            for (const property in elements) {
+                // console.log(`${property}: ${elements[property]}`);
+                let columnField = document.createElement("td");
+                let columnText = document.createTextNode(`${elements[property]}`);
+                columnField.appendChild(columnText);
+                row.append(columnField);
+              }
+        }
+        
+    })
+    
+    
