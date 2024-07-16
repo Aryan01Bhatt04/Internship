@@ -38,26 +38,33 @@ const PhnNo = document.getElementById("PhnNo");
             const messageNode = document.getElementById("EmailError").innerText = "Enter Valid Phone Number";
         }
 });
-
-let flag = 0; 
-
 const plusButton = document.getElementById("plusButton");
 plusButton.addEventListener('click',function(e){
-    if(flag < 5 ){
-        if(flag == 4)
-        {
-            alert("Maximum number of fields reached");
-        }
-        else{
-            flag += 1;
-            const newNode = document.createElement("input");
-            newNode.setAttribute("id","Prof_Details");
-            newNode.setAttribute("type","text");
-            newNode.setAttribute("placeholder","Other Details");
-            const parent = document.getElementById("right");
-            parent.appendChild(newNode);
-        }
-    }
-    
-    return;
+    e.preventDefault();
 });
+
+
+
+// let flag = 0; 
+
+// const plusButton = document.getElementById("plusButton");
+// plusButton.addEventListener('click',function(e){
+//     e.preventDefault();
+//     if(flag < 5 ){
+//         if(flag == 4)
+//         {
+//             alert("Maximum number of fields reached");
+//         }
+//         else{
+//             flag += 1;
+//             const newNode = document.createElement("input");
+//             newNode.setAttribute("id","Prof_Details");
+//             newNode.setAttribute("type","text");
+//             newNode.setAttribute("placeholder","Other Details");
+//             const parent = document.getElementById("right");
+//             parent.appendChild(newNode);
+//         }
+//     }
+    
+//     return;
+// });

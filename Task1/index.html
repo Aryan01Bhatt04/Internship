@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <form action="ResultTable.html" method="GET" class="container">
         <div class="left">
-            <input class="inputFields" id="Fname" type="text" placeholder="First Name"><br>
+            <input name="Fname" class="inputFields" id="Fname" type="text" placeholder="First Name"><br>
             <p id="NameError" class="message-error"></p>
-            <input class="inputFields" id="Lname" type="text" placeholder="Last Name"><br>
-            <input class="inputFields" id="Email" type="text" placeholder="Email"><br>
+            <input name="Lname" class="inputFields" id="Lname" type="text" placeholder="Last Name"><br>
+            <input name="Email" class="inputFields" id="Email" type="text" placeholder="Email"><br>
             <p  id="EmailError" class="message-error"></p>
-            <input class="inputFields" id="PhnNo" type="text" placeholder="Phone Number"><br>
+            <input name="PhnNo" class="inputFields" id="PhnNo" type="text" placeholder="Phone Number"><br>
             <p  id="ContactError" class="message-error"></p>
             <select name="Gender" id="Gender" class="genderSelect">
                 <option value="Male">Male</option>
@@ -22,21 +22,22 @@
                 <option value="Other">Other</option>
             </select>
             <br>
-            <textarea id="AddressBox" class="AddressBox">Address</textarea><br>
+            <textarea name="AddressBox" id="AddressBox" class="AddressBox">Address</textarea><br>
             <div class="DateField">
                 <label for="DateField">Date Of Birth</label><br>
-                <input type="date" id="DateField">
+                <input name="DateField" type="date" id="DateField">
             </div>
+            <button class="submitButton" type="submit">Submit</button>
         </div>
         <div id="right" class="right">
             <div class="labelbtn">
                 <label for="Prof_Details">Professional Details</label>
                 <button id="plusButton" class="plusButton"><img src="icons/plus_icon.png" alt=""></button>
             </div>
-            <input type="text" id="Prof_Details" placeholder="Title">
-            <textarea id="Experience">Experience</textarea>
+            <input name="Prof_Details" type="text" id="Prof_Details" placeholder="Title">
+            <textarea name="Experience" id="Experience">Experience</textarea>
         </div>
-    </div>
+    </form>
 </body>
 <script src="index.js">
 </script>
