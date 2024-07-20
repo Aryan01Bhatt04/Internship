@@ -1,49 +1,69 @@
 const Fname = document.getElementById("Fname");
     Fname.addEventListener('blur',function(e){
+        const messageNode = document.getElementById("NameError");
         if(/^[a-zA-Z]{2,}\S$/.test(e.target.value))
     {
-        const messageNode = document.getElementById("NameError");
         messageNode.style.color = "darkgreen";
         messageNode.innerText = "Valid Name";
     }
     else{
-        const messageNode = document.getElementById("NameError").innerText = "Enter Valid Name";
+        messageNode.innerText = "Enter Valid Name";
     }
     return;
 });
 
 const Email = document.getElementById("Email");
     Email.addEventListener('blur',function(e){
+        const messageNode = document.getElementById("EmailError");
         if(/^[A-Za-z0-9]+(?:[._][A-Za-z0-9]+)*@[A-Za-z0-9]+\.[A-Za-z]{2,}$/.test(e.target.value))
         {
-            const messageNode = document.getElementById("EmailError");
                 messageNode.style.color = "darkgreen";
                 messageNode.innerText = "Valid Email";
         }
         else{
-            const messageNode = document.getElementById("EmailError").innerText = "Enter Valid Email";
+            messageNode.innerText = "Enter Valid Email";
         }
 });
 
 
 const PhnNo = document.getElementById("PhnNo");
     PhnNo.addEventListener('blur',function(e){
+        const messageNode = document.getElementById("ContactError");
         if(/^[0-9]{10}$/.test(e.target.value))
         {
-            const messageNode = document.getElementById("ContactError");
                 messageNode.style.color = "darkgreen";
                 messageNode.innerText = "Valid Phone Number";
         }
         else{
-            const messageNode = document.getElementById("EmailError").innerText = "Enter Valid Phone Number";
+            messageNode.innerText = "Enter Valid Phone Number";
         }
 });
+
+
+function validateDetails(e){
+    e.preventDefault();
+    let unfilled = false;
+    const Address = document.getElementById("AddressBox").value;
+    const Date = document.getElementById("DateField").value;
+    const Title = document.getElementById("Prof_Details").value;
+    const Experience = document.getElementById("Experience").value;
+    if ((/^(Address)$/.test(Address)) && (Date == "") && (Title == "") && (/^(Experience)$/.test(Experience))) {
+        unfilled = true;
+    }
+
+    if(unfilled == true ){
+        const validateMessage = document.getElementById("validationError");
+        validateMessage.innerText = "Fill all the details"
+    }
+    else{
+        submitDetails(e);
+    }
+}
 
 let recordList = new Array();
 
 function submitDetails(e){
     e.preventDefault();
-    console.log(e);
     let fieldList = {
         "Fullname" : document.getElementById("Fname").value +" "+document.getElementById("Lname").value,
         "Email" : document.getElementById("Email").value,
@@ -86,7 +106,3 @@ plusButton.addEventListener('click',function(e){
             
     return;
 });
-// const plusButton = document.getElementById("plusButton");
-// plusButton.addEventListener('click',function(e){
-//     e.preventDefault();
-// });

@@ -21,5 +21,3 @@ window.addEventListener('load',function(){
         }
         
     })
-    
-    

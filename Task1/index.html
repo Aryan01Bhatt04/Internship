@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form onsubmit="submitDetails(event)" method="POST" class="container">
+    <h1 id="validationError"></h1>
+    <form onsubmit="validateDetails(event)" method="POST" class="container">
         <div class="left">
             <input name="Fname" class="inputFields" id="Fname" type="text" placeholder="First Name"><br>
             <p id="NameError" class="message-error"></p>
@@ -27,6 +28,7 @@
                 <label for="DateField">Date Of Birth</label><br>
                 <input name="DateField" type="date" id="DateField">
             </div>
+            <p  id="submitError" class="message-error"></p>
             <button id="submitButton" class="submitButton" type="submit">Submit</button>
         </div>
         <div id="right" class="right">
