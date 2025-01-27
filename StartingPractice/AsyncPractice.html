@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AsyncPractice</title>
+</head>
+<body>
+    <h1>This is a Async Task Practice</h1><br><br>
+    <h1 id="banner">Before Timeout</h1><br><br>
+    <button style="height: 60px; width: 100px;" id="start"> Start </button>
+    <button style="height: 60px; width: 100px;" id="stop"> Stop </button>
+
+</body>
+<script>
+    let timeout1;
+    document.querySelector("#start").addEventListener('click',(event) => {
+        timeout1 = setTimeout(() => {
+            const Banner = document.querySelector('#banner');
+            Banner.setAttribute('style','color: red;');
+            Banner.innerText = "After Timeout";
+        },5000)
+    });
+    document.querySelector("#stop").addEventListener('click',(event) => {
+        clearTimeout(timeout1);
+        alert("Timeout Stopped");
+    })
+</script>
+</html>

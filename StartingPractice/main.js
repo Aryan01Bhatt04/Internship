@@ -188,15 +188,10 @@ const userArray = [
 
 userArray[1].email // accessing
 
-// date object 
+// Array Destructuring
+let arrDes = ["John", "Doe"];
 
-let dateObj = new Date();
-console.log(dateObj.toString()); // returns the today's date with time and time zone
-console.log(dateObj.toLocaleString()); // returns the today's date with time but not time zone
-console.log(dateObj.toDateString()); // returns the today's full date
-console.log(dateObj.getDate()); // returns the today's date 
-
-let timeStamp = Date.now(); // gives the timestamp in milliseconds from the date 1 January 1970, we need to further process it to use in applications
+let [firstName, surname] = arrDes; // assigns arrDes[0] as firstName and arr[1] as surname
 
 // loops
 
@@ -220,6 +215,16 @@ for(let boy of Boys){
         console.log(boy);
     }
 }
+// for...in loop 
+// Used to make objects iterable
+for (let detail in details){
+    console.log(details[detail]);
+} // it prints the values of the key that are fetched one by one in detail variable
+
+// forEach loop is mostly used for arrays
+Boys.forEach((boy) => {
+    console.log(boy);
+})
 
 // Maps
 
@@ -230,4 +235,101 @@ map.set('Fr', "France")
 map.set('IN', "India")
 
 
-// console.log(map);
+console.log(map);
+
+// date object 
+
+let dateObj = new Date();
+console.log(dateObj.toString()); // returns the today's date with time and time zone
+console.log(dateObj.toLocaleString()); // returns the today's date with time but not time zone
+console.log(dateObj.toDateString()); // returns the today's full date
+console.log(dateObj.getDate()); // returns the today's date 
+
+let timeStamp = Date.now(); // gives the timestamp in milliseconds from the date 1 January 1970, we need to further process it to use in applications
+
+// functions 
+
+function practiceFunction(arg1, arg2) {
+    let sumResult = arg1 + arg2;
+    return sumResult;
+} // conventional method
+
+let practiceFunction2 = function(){
+    console.log("This is the function expression syntax");
+}
+
+let practiceFunction3 = () => {
+    console.log("This is the arrow function syntax");
+}
+
+// callback functions
+let calculateSum = (numbers) =>{
+    let sum = 0
+    for (const number of numbers) {
+        sum = sum + number;
+    }
+    return sum;
+}
+
+let calculateAverage = (...numbers) => {
+    return calculateSum(numbers)/numbers.length;  // in this example above function is a callback function that is getting returned by the main function
+}
+
+console.log(calculateAverage(1,2,3,4,5,6,7,8,9,10)); // 5.5
+
+// Promises 
+
+const promiseExample1 = new Promise(function(resolve, reject){
+    //Do an async task
+    // DB calls, cryptography, network
+    setTimeout(function(){
+        console.log('Async task is compelete');
+        resolve()
+    }, 1000)
+})
+
+promiseExample1.then(function(){
+    console.log("Promise consumed");
+})
+
+new Promise(function(resolve, reject){
+    setTimeout(function(){
+        console.log("Async task 2");
+        resolve()
+    }, 1000)
+
+}).then(function(){
+    console.log("Async 2 resolved");
+})
+
+const promiseExample3 = new Promise(function(resolve, reject){
+    setTimeout(function(){
+        resolve({username: "aryan", email: "aryan@example.com"})
+    }, 1000)
+})
+
+promiseExample3.then(function(user){
+    console.log(user);
+})
+
+const promiseFour = new Promise(function(resolve, reject){
+    setTimeout(function(){
+        let error = true
+        if (!error) {
+            resolve({username: "aryan", password: "123"})
+        } else {
+            reject('ERROR: Something went wrong')
+        }
+    }, 1000)
+})
+
+ promiseFour
+ .then((user) => {
+    console.log(user);
+    return user.username
+}).then((username) => {
+    console.log(username);
+}).catch(function(error){
+    console.log(error);
+}).finally(() => console.log("The promise is either resolved or rejected"))
+
