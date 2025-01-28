@@ -333,3 +333,21 @@ const promiseFour = new Promise(function(resolve, reject){
     console.log(error);
 }).finally(() => console.log("The promise is either resolved or rejected"))
 
+// localStorage
+
+// localStorage.getItem() used to retrieve the value of a given key
+// localStorage.setItem() used to add a key-value pair in the localStorage to store it
+// localStorage.clear() used to clear all the values in localStorage
+// localStorage.removeItem() used to remove a particular value based on the given key
+
+// for eg
+let localDB = {
+    'StudentName' : "Aryan Bhatt",
+    'Semester': 8,
+    'Department' : "CSE",
+    'CGPA' : 8.37,
+    'isGraduated' : false,
+};
+
+let stringFormatted = JSON.stringify(localDB);
+localStorage.setItem('studentDetail', stringFormatted);
