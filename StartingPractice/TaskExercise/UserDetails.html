@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Form Details</title>
+    <link rel="stylesheet" href="FormStyles.css">
+</head>
+<body>
+    <div class="main" id="main">
+        <div class="heading">
+            <h1>Welcome User,</h1>
+        </div>
+        <form name="UserDetails" onsubmit="validateDetails(event)">
+            <div class="fields">
+                <div class="left">
+                    <input type="text" class="inputFields" name="FirstName" id="FirstName" placeholder="First Name">
+                    <p class="errorMessage" style="display: none;">Enter valid FirstName</p>
+                    <input type="text" class="inputFields" name="LastName" id="LastName" placeholder="Last Name">
+                    <input type="text" class="inputFields" name="Email" id="Email" placeholder="Email">
+                    <p class="errorMessage" style="display: none;">Enter valid Email</p>
+                    <input type="text" class="inputFields" name="Contact" id="Contact" placeholder="Contact No.">
+                    <p class="errorMessage" style="display: none;">Enter valid Contact No.</p>
+                    <select name="Gender" id="Gender" class="GenderSelection">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                    <textarea name="AddressBox" id="AddressBox" class="AddressBox">Address</textarea>
+                    <p class="errorMessage" style="display: none;">Enter valid Address</p>
+                    <div class="DateField">
+                        <label for="DateField">Date Of Birth</label>
+                        <input name="DateField" type="date" id="DateField">
+                    </div>
+                    <p class="errorMessage" style="display: none;">Select Date of Birth</p>
+                    <button id="submitButton" class="submitButton" type="submit">Submit</button>
+                </div>
+                <div class="right">
+                    <div class="labelbtn">
+                        <label for="Prof_Details">Professional Details</label>
+                    <button id="plusButton" class="plusButton"><img src="icons/plus_icon.png" alt=""></button>
+                </div>
+                <input name="Prof_Details" type="text" id="Prof_Details" placeholder="Title" class="inputFields">
+                <p class="errorMessage" style="display: none;">Enter valid Designation</p>
+                <textarea name="Experience" id="Experience" class="AddressBox">Experience</textarea>
+                <p class="errorMessage" style="display: none;">Enter proper Experience</p>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+<script src="userDetails.js"></script>
+</html>

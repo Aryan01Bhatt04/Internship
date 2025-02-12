@@ -1,0 +1,177 @@
+.main{
+    height: 110vh;
+    width: 100vw;
+    background-image: linear-gradient(35deg, #0000bf, #890089,#450045);
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.heading{
+    height: 10vh;
+    width: 100vw;
+    color: #96C9F4;
+    text-shadow: 3px 3px 3px #222222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fields{
+    height: 85vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.left{
+    /* width: 20vw; */
+    /* border: 2px solid black; */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    float: left;
+    box-shadow: 0px 4px 4px 4px #222222;
+}
+.right{
+    /* width: 20vw; */
+    /* border: 2px solid black; */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    float: right;
+    box-shadow: 0px 4px 4px 4px #222222;
+}
+.inputFields{
+    height: 40px;
+    width: 350px;
+    text-indent: 14px;
+    margin: 15px;
+    color: rgb(169, 218, 237);
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 2px 4px 2px 0px #00003f;
+    background-image: linear-gradient(320deg, #890089,#450045);
+    border: 0px;
+}
+.inputFields::placeholder{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #898989;
+    font-weight: bold;
+    font-size: smaller;
+}
+.GenderSelection{
+    height: 40px;
+    width: 350px;
+    text-indent: 14px;
+    margin: 15px;
+    color: rgb(169, 218, 237);
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 2px 4px 2px 0px #00003f;
+    background-image: linear-gradient(320deg, #890089,#450045);
+    border: 0px;
+}
+#Gender > option{
+    height: 40px;
+    width: 350px;
+    text-indent: 14px;
+    margin: 15px;
+    color: rgb(169, 218, 237);
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 2px 4px 2px 0px #00003f;
+    background-image: linear-gradient(320deg, #890089,#450045);
+    border: 0px;
+}
+.AddressBox{
+    height: 100px;
+    width: 250px;
+    text-indent: 14px;
+    margin: 15px;
+    color: rgb(169, 218, 237);
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 2px 4px 2px 0px #00003f;
+    background-image: linear-gradient(320deg, #890089,#450045);
+    border: 0px;
+    padding-top:10px;
+}
+.DateField{
+    height: 38px;
+    width: 350px;
+    text-indent: 14px;
+    margin: 15px;
+    color: rgb(169, 218, 237);
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 2px 4px 2px 0px #00003f;
+    background-image: linear-gradient(320deg, #890089,#450045);
+    border: 0px;
+    padding-top: 10px;
+}
+#DateField{
+    color: rgb(169, 218, 237);
+    background-color: #890089;
+    border: 0px;
+    font-weight: bold;
+    float: right;
+    margin-top: 5px;
+    font-size: 15px;
+}
+.submitButton{
+    height: 40px;
+    width: 100px;
+    margin: 15px;
+    color: rgb(169, 218, 237);
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 2px 4px 2px 0px #00003f;
+    background-image: linear-gradient(320deg, #890089,#450045);
+    border: 0px;   
+    cursor: pointer;
+}
+.submitButton:hover{
+    background-image: none;
+    background-color: #890089;
+}
+.labelbtn{
+    height: 40px;
+    width: 350px;
+    text-indent: 14px;
+    margin: 15px;
+    color: rgb(169, 218, 237);
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 2px 4px 2px 0px #00003f;
+    background-image: linear-gradient(320deg, #890089,#450045);
+    border: 0px;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.plusButton{
+    position: relative;
+    border-radius: 360px;
+    width: fit-content;
+    height: fit-content;
+    border: 0px;
+    margin-right: 5px;
+    float: right;
+    background-color: #96C9F4;
+}
+.plusButton > img{
+    height: 30px;
+    width: 30px;
+}
+.errorMessage{
+    color: red;
+    font-weight: bold;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
