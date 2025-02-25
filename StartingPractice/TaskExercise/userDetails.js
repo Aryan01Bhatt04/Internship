@@ -32,7 +32,7 @@ contact.addEventListener('blur',(event) => {
 
 let address = document.querySelector('#AddressBox');
 address.addEventListener('blur',(event) => {
-    if((/^(Address)$/.test(event.target.value) || (event.target.value == ""))){
+    if(event.target.value == ""){
         showError(errorMessages[3]);
     }else{
         noError(errorMessages[3])
@@ -95,7 +95,11 @@ plusButton.addEventListener('click',function(e){
             
     return;
 });
+let userId = 1;
 let detailList = [];
+let heading = document.querySelector('.heading');
+const authMessage = document.createElement('h3');
+authMessage.setAttribute('id',"authMessage")
 let validateDetails = (event) => {
     event.preventDefault();
     let formReceived = document.forms.UserDetails;
@@ -112,19 +116,39 @@ let validateDetails = (event) => {
     let {fullName, email, contact, address, date, title, experience} = formFields;
     if((fullName != "") && (email != "") && (contact != "") && (address != "") && (date != "") && (title != "") && (experience != "")){
         let existingRecords = localStorage.getItem('records');
-        if (existingRecords == null){
+        if (!existingRecords){
             detailList.push(formFields);
             localStorage.setItem('records',JSON.stringify(detailList));
             console.log(detailList);
+            showMessage(1)
             return;
         }
         else{
             detailList = JSON.parse(existingRecords);
-            detailList.push(formFields);
-            localStorage.setItem('records',JSON.stringify(detailList));
-            console.log(detailList);
+            if(searchRecord(detailList,formFields)){
+                showMessage(0);
+            }
+            else{
+                showMessage(1)
+                detailList.push(formFields);
+                localStorage.setItem('records',JSON.stringify(detailList));
+            }
         }
     }
+    else{
+        console.log("in red");
+        showMessage(2)
+    }
+}
+
+function searchRecord(recordList,formFields){
+    for (const element of recordList){
+        if(element.email == formFields.email){
+            console.log("element exists",element);
+            return true;
+        }
+    }
+    return false;
 }
 
 function showError(message){
@@ -134,3 +158,28 @@ function showError(message){
 function noError(message){
     message.style.display = 'none';
 }
+
+function showMessage(flag){
+    if(flag == 0){
+        authMessage.style.display = 'block'
+        authMessage.style.color = 'gold';
+        authMessage.innerText = "User Already exists"
+        heading.appendChild(authMessage);
+    }
+    else if(flag == 1){
+        authMessage.style.display = 'block'
+        authMessage.style.color = 'green';
+        authMessage.innerText = "Details Registered"
+        heading.appendChild(authMessage);
+    }
+    else if(flag == 2){
+        authMessage.style.display = 'block'
+        authMessage.style.color = 'red';
+        authMessage.innerText = "Please Fill out all Details"
+        heading.appendChild(authMessage);
+    }
+    setTimeout(() => {
+        authMessage.style.display = 'none'
+    },5000)
+}
+
