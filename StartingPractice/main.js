@@ -351,3 +351,21 @@ let localDB = {
 
 let stringFormatted = JSON.stringify(localDB);
 localStorage.setItem('studentDetail', stringFormatted);
+
+
+// Closure
+function Fun1() {
+    const name = 'Aryan';
+    function displayName(){
+        console.log(name);
+    }
+    return displayName;
+}
+
+const callFun = Fun1();
+callFun();
+
+// In the above scenario when Fun1 is assigned to callFun it gets executed in order to return displayName, now usually after the execution
+// the lexical scope of entire Fun1 is removed from call stack which implies there are no variables like name and the displayName won't
+// display any name... but here is the catch. While returning displayName as its return value the Fun1 function also returns it entire 
+// lexical scope preserved in memory and that is called closure.

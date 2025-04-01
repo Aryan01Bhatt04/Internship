@@ -70,6 +70,16 @@ experience.addEventListener('blur',(event) => {
     return;
 })
 
+let password = document.querySelector('#Password');
+password.addEventListener('blur',(event) => {
+    if(event.target.value == "" ){
+        showError(errorMessages[7]);
+    }else{
+        noError(errorMessages[7])
+    }
+    return;
+})
+
 let flag = 0; 
 
 const plusButton = document.getElementById("plusButton");
@@ -88,8 +98,9 @@ plusButton.addEventListener('click',function(e){
                         newNode.setAttribute("placeholder","Other Details");
                         newNode.setAttribute("name","OtherDetails")
                         newNode.className = 'inputFields';
-                        const parent = document.querySelector(".right")
-                        parent.appendChild(newNode);
+                        // const parent = document.querySelector(".right")
+                        // parent.appendChild(newNode);
+                        document.querySelector('.right').insertBefore(newNode, document.querySelector('#Password'));
                     }
                 }
             
@@ -112,6 +123,7 @@ let validateDetails = (event) => {
         date : formReceived.DateField.value,
         title : formReceived.Prof_Details.value,
         experience : formReceived.Experience.value,
+        password : formReceived.Password.value,
     }
     let {fullName, email, contact, address, date, title, experience} = formFields;
     if((fullName != "") && (email != "") && (contact != "") && (address != "") && (date != "") && (title != "") && (experience != "")){

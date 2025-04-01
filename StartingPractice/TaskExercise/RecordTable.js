@@ -72,7 +72,7 @@ const saveRecord = (index, event) => {
 
 const tableCreation = () => {
     detailList.forEach((record, index) => {
-        console.log(record, index);
+        // console.log(record, index);
         const rowElement = tableBody.insertRow();
         Object.values(record).forEach(value => {
             const newCell = rowElement.insertCell();
@@ -91,6 +91,10 @@ const tableCreation = () => {
 
 const tableBody = document.querySelector("#table-body");
 window.addEventListener('load',() => {
+    detailList.forEach((record) => {
+        Object.defineProperty(record,'password',{ enumerable : false})
+    })
+    console.log(detailList[0]);
     tableCreation();
     const deleteOperation = document.querySelectorAll("#deleteRecord");
     deleteOperation.forEach((button, index) => {

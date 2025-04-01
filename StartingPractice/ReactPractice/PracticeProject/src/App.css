@@ -1,0 +1,19 @@
+h1{
+  color: red;
+}
+
+h3{
+  display: flex;
+  justify-self: center;
+}
+
+button{
+  background-color: #aaaaaa;
+  margin: 9px;
+  font-weight: bold;
+}
+
+.buttons{
+  display: flex;
+  justify-content: center;
+}
